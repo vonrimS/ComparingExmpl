@@ -1,6 +1,5 @@
 package com.mname.compare.these;
 
-import java.util.Comparator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -8,12 +7,11 @@ import java.util.TreeMap;
 public class Main {
 
 	public static void main(String[] args) {
-		CompareThese compareThese = new CompareThese();
-		Comparator<String> compareTheseThen = compareThese.thenComparing(new CompareTheseThen());
+		new CompareThese();
 
-		TreeMap<String, Double> tm = new TreeMap<>(compareTheseThen);
+		TreeMap<String, Double> tm = new TreeMap<String, Double>((String o1, String o2) -> o1.compareTo(o2));
 
-		tm.put("Иван Иванов", new Double(1000.10));
+		tm.put("Алексей Иванов", new Double(1000.10));
 		tm.put("Григорий Иванов", new Double(1890.19));
 		tm.put("Инвар Гайдар", new Double(99000.10));
 		tm.put("Савелий Брюлов", new Double(101.11));
